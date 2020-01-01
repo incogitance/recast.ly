@@ -20,8 +20,9 @@
 //   }
 
 // }
-import VideoPlayer from './VideoPlayer.js';
-//onClick= VideoPlayer(props.videos);
+//import VideoPlayer from './VideoPlayer.js';
+import App from './App.js'
+//onClick={props => VideoPlayer};
 
 var VideoListEntry = (props) => (
   <div className="video-list-entry media">
@@ -29,11 +30,25 @@ var VideoListEntry = (props) => (
       <img className="media-object" src={props.video.snippet.thumbnails.default.url} alt={props.video.snippet.title}/>
     </div>
     <div className="media-body">
-      <div className="video-list-entry-title">{props.video.snippet.title}</div>
+      <div className="video-list-entry-title" onClick={() => {props.setVideo(props.video)}} >{props.video.snippet.title}</div>
       <div className="video-list-entry-detail">{props.video.snippet.description}</div>
     </div>
   </div>
 );
+
+
+// var VideoListEntry = ({click, video}) => (
+//   <div className="video-list-entry media">
+//     <div className="media-left media-middle">
+//       <img className="media-object" src={video.snippet.thumbnails.default.url} alt="" />
+//     </div>
+//     <div className="media-body">
+//       <div onClick={() => {click(video)}}className="video-list-entry-title">{video.snippet.title}</div>
+//       <div className="video-list-entry-detail">{video.snippet.description}</div>
+//     </div>
+//   </div>
+// );
+
 
 // onClick={VideoPlayer()
 // PropTypes tell other developers what `props` a component expects
